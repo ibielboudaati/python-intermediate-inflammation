@@ -1,10 +1,10 @@
 """Tests for statistics functions within the Model layer."""
 import os
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-import numpy as np
 import numpy.testing as npt
-from inflammation.models import daily_mean
+import numpy as np
+from inflammation.models import daily_mean, daily_max,daily_min
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 def test_daily_mean_zeros():
@@ -31,8 +31,6 @@ def test_daily_mean_integers():
 
 def test_daily_max():
     """Test that max function works for an array of positive integers."""
-    from inflammation.models import daily_max
-
     test_input = np.array([[4, 2, 5],
                            [1, 6, 2],
                            [4, 1, 9]])
@@ -43,8 +41,6 @@ def test_daily_max():
 
 def test_daily_min():
     """Test that min function works for an array of positive and negative integers."""
-    from inflammation.models import daily_min
-
     test_input = np.array([[ 4, -2, 5],
                            [ 1, -6, 2],
                            [-4, -1, 9]])
