@@ -1,13 +1,14 @@
 """Tests for statistics functions within the Model layer."""
-
-import numpy as np
+import os
+import sys
 import numpy.testing as npt
+import numpy as np
+from inflammation.models import daily_mean, daily_max,daily_min
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 
 def test_daily_mean_zeros():
     """Test that mean function works for an array of zeros."""
-    from inflammation.models import daily_mean
-
     test_input = np.array([[0, 0],
                            [0, 0],
                            [0, 0]])
@@ -19,8 +20,6 @@ def test_daily_mean_zeros():
 
 def test_daily_mean_integers():
     """Test that mean function works for an array of positive integers."""
-    from inflammation.models import daily_mean
-
     test_input = np.array([[1, 2],
                            [3, 4],
                            [5, 6]])
@@ -29,10 +28,16 @@ def test_daily_mean_integers():
     # Need to use Numpy testing functions to compare arrays
     npt.assert_array_equal(daily_mean(test_input), test_result)
 
+<<<<<<< HEAD
 def test_daily_max():
     """Test that max function works for an array of positive integers."""
     from inflammation.models import daily_max
 
+=======
+
+def test_daily_max():
+    """Test that max function works for an array of positive integers."""
+>>>>>>> develop
     test_input = np.array([[4, 2, 5],
                            [1, 6, 2],
                            [4, 1, 9]])
@@ -40,13 +45,23 @@ def test_daily_max():
 
     npt.assert_array_equal(daily_max(test_input), test_result)
 
+<<<<<<< HEAD
 def test_daily_min():
     """Test that min function works for an array of positive and negative integers."""
     from inflammation.models import daily_min
 
+=======
+
+def test_daily_min():
+    """Test that min function works for an array of positive and negative integers."""
+>>>>>>> develop
     test_input = np.array([[ 4, -2, 5],
                            [ 1, -6, 2],
                            [-4, -1, 9]])
     test_result = np.array([-4, -6, 2])
 
+<<<<<<< HEAD
     npt.assert_array_equal(daily_min(test_input), test_result)
+=======
+    npt.assert_array_equal(daily_min(test_input), test_result)
+>>>>>>> develop
